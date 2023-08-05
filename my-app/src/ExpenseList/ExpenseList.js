@@ -1,15 +1,6 @@
-import React,{useState,useEffect} from "react"
-function ExpenseList() {
-   const[info, setInfo] = useState("")
-    
-   useEffect(() => {
-    fetch("http://10.212.160.134:3000/ex2")
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        setInfo(data)})
-    },[])
-    console.log(info)
+import React from "react"
+function ExpenseList(props) {
+   console.log(props)
     return(
         <div>
             <h2>Expense List</h2>
@@ -26,7 +17,7 @@ function ExpenseList() {
     </thead>
             <tbody>
       { 
-        info && info.map((element) => 
+        props.expenseList && props.expenseList.map((element) => 
         <tr 
             key = {element.expenseId} className="" > 
           <td scope="row" >{element.expenseId}</td>
