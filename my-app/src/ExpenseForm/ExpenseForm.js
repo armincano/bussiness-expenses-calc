@@ -35,7 +35,7 @@ function ExpenseForm(props) {
     const changeInputCategoty = (event) => {
         SetvalueCategory(event.target.value)
     }
-    consol
+
     return(<form onSubmit={onChangeSubmit}>
         <h3>Add your expense</h3>
         <input value = {valueDes} type = "text" placeholder = "Description" onChange={changeInputDes}></input>
