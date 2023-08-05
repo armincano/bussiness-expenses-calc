@@ -3,12 +3,9 @@ import ExpenseList from "./ExpenseList/ExpenseList";
 import ExpenseForm from "./ExpenseForm/ExpenseForm";
 import ExpenseItem from "./ExpenseItem/ExpenseItem";
 import React, { useEffect, useState } from "react";
-import DummyList from "./Dummy/dummyList.json";
 
 function App() {
 	const [expenseList, setExpenseList] = useState(null);
-
-	const [clickedId, setClickedId] = useState(null);
 
 	const [selectedItem, setSelectedItem] = useState({
 		expenseId: "",
@@ -24,28 +21,15 @@ function App() {
 			.then((data) => setExpenseList(data));
 	}, []);
 
-	// function handleChange(e) {
-	// 	const { expenseId, description, amount, date, category } = e.target;
-	// 	setFormData((prevFormData) => ({
-	// 		...prevFormData,
-	// 		[expenseId]: expenseId,
-	// 		[description]: description,
-	// 		[amount]: amount,
-	// 		[date]: date,
-	// 		[category]: category,
-	// 	}));
-	// }
-
 	function handleSubmit(obj) {
 		expenseList.concat(obj);
 	}
 
-	function clickedItem(id) {
-		setClickedId(id);
-		
+	function clickedItem(expenseId) {
+		setSelectedItem(
+			expenseList.filter(i => i.expenseId)
+		)
 	}
-
-
 
 	return (
 		<div className="App">
