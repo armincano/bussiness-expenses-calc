@@ -6,7 +6,7 @@ import ExpenseItem from "./ExpenseItem/ExpenseItem";
 import React, { useEffect, useState } from "react";
 
 function App() {
-	const [expenseList, setExpenseList] = useState("");
+	const [expenseList, setExpenseList] = useState([]);
 
 	const [selectedItem, setSelectedItem] = useState({
 		expenseId: "",
@@ -22,15 +22,16 @@ function App() {
 			.then((data) => setExpenseList(data));
 	}, []);
 
-	function handleSubmit(obj) {
-		expenseList.concat(obj);
-	}
-
+	
 	function clickedItem(expenseId) {
 		setSelectedItem(
 			expenseList.filter(i => i.expenseId)
-		)
-	}
+			)
+		}
+		
+	function handleSubmit(obj) {
+		setExpenseList([...expenseList, obj]) 
+		}
 
 	return (
 		<div className="App">
