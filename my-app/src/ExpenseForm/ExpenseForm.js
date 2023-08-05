@@ -35,17 +35,13 @@ function ExpenseForm(props) {
     const changeInputCategoty = (event) => {
         SetvalueCategory(event.target.value)
     }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> refs/remotes/origin/main
     return(<form onSubmit={onChangeSubmit}>
         <h3>Add your expense</h3>
         <input value = {valueDes} type = "text" placeholder = "Description" onChange={changeInputDes}></input>
         <input value = {valueAmount} type = "number" placeholder="Amount" onChange={changeInputAmount}></input>
-        <input value = {valueDate} type = "text" placeholder="Date" onChange={changeInputDate}> </input>
-        <input value = {valueCategory} type = "text" placeholder="Category"onChange={changeInputCategoty}> </input>
+        <input value = {valueDate} type = "text" placeholder="Date" onChange={changeInputDate}></input>
+        <input value = {valueCategory} type = "text" placeholder="Category"onChange={changeInputCategoty}></input>
         <button>Add Expense</button>
     </form>
     )

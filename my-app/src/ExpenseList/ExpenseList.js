@@ -20,11 +20,11 @@ function ExpenseList(props) {
         props.expenseList && props.expenseList.map((element) => 
         <tr 
             key = {element.expenseId} className="" > 
-          <td scope="row" >{element.expenseId}</td>
-          <td scope="row">{element.description}</td>
-          <td scope="row">{element.amount} </td>
-          <td scope="row">{element.date}</td>
-          <td scope="row">{element.category}</td>
+          <td>{element.expenseId}</td>
+          <td>{element.description}</td>
+          <td>{element.amount} </td>
+          <td>{element.date}</td>
+          <td>{element.category}</td>
         </tr>
         )}
      </tbody>

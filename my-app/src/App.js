@@ -6,7 +6,7 @@ import ExpenseItem from "./ExpenseItem/ExpenseItem";
 import React, { useEffect, useState } from "react";
 
 function App() {
-	const [expenseList, setExpenseList] = useState(null);
+	const [expenseList, setExpenseList] = useState("");
 
 	const [selectedItem, setSelectedItem] = useState({
 		expenseId: "",
@@ -36,10 +36,9 @@ function App() {
 		<div className="App">
 			<div className="App-header">
 				<ExpenseList expenseList={expenseList} clickedItem={clickedItem} />
-				<ExpenseForm
-					onExpenseCreated={handleSubmit}
+				<ExpenseForm onExpenseCreated={handleSubmit}
 				/>
-				<ExpenseItem selectedItem={selectedItem}/>
+				{/* <ExpenseItem selectedItem={selectedItem}/> */}
 			</div>
 		</div>
 	);
