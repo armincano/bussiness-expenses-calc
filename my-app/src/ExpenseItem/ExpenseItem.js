@@ -2,15 +2,16 @@ import React from "react";
 import "./ExpenseItem.css"
 
 
-function ExpenseItem({selectedItem}) {
+function ExpenseItem(props) {
+    
     return(
-        <div className="expense_item_container">
+        <div className="expense_item_container" onClick={() => props.clickedObject()}>
             <div className="expense_item_details">
                 <h2>Expense Details</h2>
-                <p>Description: {selectedItem.description}</p>
-                <p>Category: {selectedItem.category}</p>
-                <p>Amount: {selectedItem.amount}</p>
-                <p>Date: {selectedItem.date}</p>
+                <p>{`Description: ${props.selectedItem.description}`}</p>
+                <p>{`Category: ${props.selectedItem.category}`}</p>
+                <p>{`Amount: ${props.selectedItem.amount}`}</p>
+                <p>{`Date: ${props.selectedItem.date}`}</p>
             </div>
         </div>
     )

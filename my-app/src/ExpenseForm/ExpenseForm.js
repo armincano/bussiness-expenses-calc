@@ -9,18 +9,21 @@ function ExpenseForm(props) {
 
     function onChangeSubmit(event){
         event.preventDefault()
-        props.onExpenseCreated(
-            {
-                "description": valueDes,
-                "amount":  valueAmount,
-                "date":  valueDate,
-                "category": valueCategory
-            }
-        )
-        SetvalueDes(""); 
-        SetvalueAmount(""); 
-        SetvalueDate("");
-        SetvalueCategory("");
+        if(valueDes && valueAmount && valueDate && valueCategory){
+            props.onExpenseCreated(
+                {
+                    "description": valueDes,
+                    "amount":  valueAmount,
+                    "date":  valueDate,
+                    "category": valueCategory
+                }
+            )
+            SetvalueDes(""); 
+            SetvalueAmount(""); 
+            SetvalueDate("");
+            SetvalueCategory("");
+        } else {alert("There is an empty field")}
+        
     }
 
     const changeInputDes = (event) => {
@@ -35,17 +38,14 @@ function ExpenseForm(props) {
     const changeInputCategoty = (event) => {
         SetvalueCategory(event.target.value)
     }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> refs/remotes/origin/main
-    return(<form onSubmit={onChangeSubmit}>
+    return(
+    <form onSubmit={onChangeSubmit}>
         <h3>Add your expense</h3>
         <input value = {valueDes} type = "text" placeholder = "Description" onChange={changeInputDes}></input>
         <input value = {valueAmount} type = "number" placeholder="Amount" onChange={changeInputAmount}></input>
-        <input value = {valueDate} type = "text" placeholder="Date" onChange={changeInputDate}> </input>
-        <input value = {valueCategory} type = "text" placeholder="Category"onChange={changeInputCategoty}> </input>
+        <input value = {valueDate} type = "date" placeholder="Date" onChange={changeInputDate}></input>
+        <input value = {valueCategory} type = "text" placeholder="Category" onChange={changeInputCategoty}></input>
         <button>Add Expense</button>
     </form>
     )
