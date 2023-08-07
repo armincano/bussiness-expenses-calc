@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import DummyList from "./Dummy/dummyList.json"
 
 function App() {
-	const [expenseList, setExpenseList] = useState(null);
+	const [expenseList, setExpenseList] = useState([]);
 	
 	useEffect(()=>{
 		setExpenseList(DummyList)
@@ -18,7 +18,7 @@ function App() {
 	// 		.then((data) => setExpenseList(data));
 	// }, []);
 
-	const [selectedItem, setSelectedItem] = useState(null);
+	const [selectedItem, setSelectedItem] = useState(false);
 	const [rowSelection, setRowSelection] = useState("hidden")
 	
 	function toggleSelection() {
@@ -34,6 +34,7 @@ function App() {
 		let expenseIdLastItem = parseInt(expenseList.at(-1).expenseId)
 		let newObj = {expenseId: (expenseIdLastItem+1).toString(),...obj}
 		setExpenseList(expenseList.concat(newObj))
+		//setExpenseList([...expenseList, obj]) 
 		console.log(expenseList);
 	}
 
