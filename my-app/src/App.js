@@ -33,9 +33,7 @@ function App() {
 	function handleSubmit(obj) {
 		let expenseIdLastItem = parseInt(expenseList.at(-1).expenseId)
 		let newObj = {expenseId: (expenseIdLastItem+1).toString(),...obj}
-		setExpenseList(expenseList.concat(newObj))
-		//setExpenseList([...expenseList, obj]) 
-		console.log(expenseList);
+		setExpenseList([...expenseList, newObj])
 	}
 
 	return (
